@@ -1,0 +1,22 @@
+<h1>Employee Info</h1>
+<div class="container">
+  <form #employeeForm="ngForm"  >
+    <div class="row">
+        <input  class="form-control" type="text" ngModel [(ngModel)]="employee.firstName" required name="firstName"   #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+    
+        <input  class="form-control" type="text" ngModel [(ngModel)]="employee.lastName" required name ="lastName"/>
+    </div>
+    <div class="row">
+        <input  class="form-control" type="text" ngModel [(ngModel)]="employee.annualSalary" required name="annualSalary"/>
+        <input  class="form-control" type="text" ngModel [(ngModel)]="employee.superRate" required name = "superRate"/>
+    </div>
+    
+    <button type="button" class="btn btn-primary mr-2" [disabled]="!employeeForm.form.valid" (click)="generatePaySlip()" value="Submit" >
+        Generate Payslip
+    </button>
+  </form>
+</div>
