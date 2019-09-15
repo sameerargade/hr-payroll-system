@@ -45,3 +45,5 @@ hr-payroll-system-web/dist/
 hr-payroll-system-web/src/.vscode/
 
 hr-payroll-system-web/node_modules/
+
+hr-payroll-system-web/src/main/web/node/
