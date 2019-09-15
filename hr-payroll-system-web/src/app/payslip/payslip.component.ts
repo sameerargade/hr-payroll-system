@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError, map,filter, tap, switchMap } from "rxjs/operators";
 import { DataService } from '../shared/data-service';
 import { Payslip } from '../model/payslip.model';
+import { PayslipService } from './payslip.service';
 
 @Component({
   selector: 'payslip',
@@ -21,7 +22,7 @@ incomeTax:number = 0.0;
 netIncome:number = 0.0;
 private state$: Observable<object>;
   constructor(private router: Router, 
-    private route: ActivatedRoute,private dataService:DataService)  {
+    private route: ActivatedRoute,private dataService:DataService,private payslipService: PayslipService)  {
       this.employeeInfo = JSON.parse(this.dataService.storage); //as EmployeeInfoModel;
       this.payslip.employee = this.employeeInfo;
       console.log(this.employeeInfo);
@@ -60,14 +61,17 @@ private state$: Observable<object>;
     //console.log(this.incomeTax);
     this.payslip.incomeTax=this.incomeTax/12;
     this.payslip.netIncome=this.payslip.grossIncome - this.payslip.incomeTax;
-    this.payslip.super = (this.payslip.grossIncome * this.payslip.employee.superRate)/100;
-    console.log(this.payslip.super);
-    this.payslip.pay = this.payslip.netIncome - this.payslip.super;
+    this.payslip.superPay = (this.payslip.grossIncome * this.payslip.employee.superRate)/100;
+    console.log(this.payslip.superPay);
+    this.payslip.pay = this.payslip.netIncome - this.payslip.superPay;
     
   }
 
   pay(){
     console.log(this.payslip);
+    this.payslipService.savePayslip(this.payslip).subscribe( data =>{
+      console.log(' returned data' + JSON.stringify(data));   
+   });;
   }
 
 }

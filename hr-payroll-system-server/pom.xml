@@ -40,12 +40,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-			<exclusions>
+			<!-- exclusions>
 				<exclusion>
 					<groupId>junit</groupId>
 					<artifactId>junit</artifactId>
 				</exclusion>
-			</exclusions>
+			</exclusions-->
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -114,10 +114,12 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/classes/resources/</outputDirectory>
+							<outputDirectory>${project.build.directory}/classes/resources/
+							</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.parent.basedir}/hr-payroll-system-web/dist/hr-payroll-system-web/</directory>
+									<directory>${project.parent.basedir}/hr-payroll-system-web/dist/hr-payroll-system-web/
+									</directory>
 								</resource>
 							</resources>
 						</configuration>

@@ -7,6 +7,6 @@ export class Payslip{
     grossIncome: number;
     incomeTax:number;
     netIncome: number;
-    super:number;
+    superPay:number;
     pay:number;
 }
