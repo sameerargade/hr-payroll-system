@@ -1,0 +1,12 @@
+{
+    "demo.title": "Translation demo",
+    "demo.text": "This is a simple demonstration app for ngx-translate",
+    "payslip.payDate": "Pay Date",
+    "payslip.frequencey": "Pay Frequency",
+    "payslip.annualIncome": "Annual Income",
+    "payslip.grossIncome": "Gross Income",
+    "payslip.incomeTax": "Income tax",
+    "payslip.netIncome": "Net Income",
+    "payslip.super": "Super",
+    "payslip.pay": "Pay" 
+  }

@@ -4,28 +4,28 @@
 <div class="container">
         <form #payslipForm="ngForm">
                 <div class="row">
-                        Pay Date {{this.payslip.payDate | date :'dd MMM yyyy'}}
+                        {{'payslip.payDate' | translate}} {{this.payslip.payDate | date :'dd MMM yyyy'}}
                 </div>
                 <div class="row">
-                        Pay Frequency {{this.payslip.payFrequency}}
+                     {{'payslip.frequencey' | translate}}   {{this.payslip.payFrequency}}
                 </div>
                 <div class="row">
-                        Annual Income {{this.payslip.employee?.annualSalary}}
+                     {{'payslip.annualIncome' | translate}}    {{this.payslip.employee?.annualSalary}}
                 </div>
                 <div class="row">
-                        Gross Income {{this.payslip.grossIncome | number:'1.0-0'}}
+                       {{'payslip.grossIncome' | translate}}{{this.payslip.grossIncome | number:'1.0-0'}}
                 </div>
                 <div class="row">
-                        Income tax {{this.payslip.incomeTax}}
+                       {{'payslip.incomeTax' | translate}} {{this.payslip.incomeTax}}
                 </div>
                 <div class="row">
-                        Net Income {{this.payslip.netIncome}}
+                    {{'payslip.netIncome' | translate}}     {{this.payslip.netIncome}}
                 </div>
                 <div class="row">
-                        Super {{this.payslip.super}}
+                     {{'payslip.super' | translate}}    {{this.payslip.superPay}}
                 </div>
                 <div class="row">
-                        Pay {{this.payslip.pay}}
+                    {{'payslip.pay' | translate}}     {{this.payslip.pay}}
                 </div>
         </form>
         <button type="button" class="btn btn-primary mr-2" (click)="pay()" value="Submit">
@@ -35,3 +35,4 @@
                 Back
         </button>
 </div>
+

@@ -7,6 +7,7 @@ import { DataService } from '../shared/data-service';
 import { Payslip } from '../model/payslip.model';
 import { PayslipService } from './payslip.service';
 import {Location} from '@angular/common';
+import {TAX_BRACKETS } from '../shared/constants'
 
 @Component({
   selector: 'payslip',
@@ -21,6 +22,8 @@ baseRate:number = 0.0;
 annualSalary:number;
 incomeTax:number = 0.0;
 netIncome:number = 0.0;
+
+
 private state$: Observable<object>;
   constructor(private router: Router, 
     private route: ActivatedRoute,private dataService:DataService,
@@ -49,17 +52,20 @@ private state$: Observable<object>;
     this.payslip.grossIncome = this.payslip.employee.annualSalary/12;
     this.calculateTax();
   }
+  
+
   calculateTax(){
-    if(this.annualSalary<=18200){
+       console.log("calculateTax2");
+    if(this.annualSalary<=TAX_BRACKETS.BRACKET_1.maxTaxable){
       this.incomeTax= 0.0;
-    }else if (this.annualSalary>=18201 && this.annualSalary <= 37000 ){
-      this.incomeTax = (this.annualSalary *19)/100;
-    }else if (this.annualSalary>=37001 && this.annualSalary <= 80000 ){
-      this.incomeTax = 3572 + ((this.annualSalary - 37000)*32.5)/100;
-    }else if (this.annualSalary>=80001 && this.annualSalary <= 180000 ){
-      this.incomeTax = 17547 + (((this.annualSalary - 80000)*37)/100);
-    }else if (this.annualSalary>=180001 ){
-      this.incomeTax = 54547 + ((this.annualSalary - 180000)*45)/100;
+    }else if (this.annualSalary>=TAX_BRACKETS.BRACKET_2.minTaxable && this.annualSalary <= TAX_BRACKETS.BRACKET_2.maxTaxable ){
+      this.incomeTax = (this.annualSalary * TAX_BRACKETS.BRACKET_2.taxPercent)/100;
+    }else if (this.annualSalary>=TAX_BRACKETS.BRACKET_3.minTaxable && this.annualSalary <= TAX_BRACKETS.BRACKET_3.maxTaxable ){
+      this.incomeTax = TAX_BRACKETS.BRACKET_3.minTax + ((this.annualSalary - TAX_BRACKETS.BRACKET_2.maxTaxable)* TAX_BRACKETS.BRACKET_3.taxPercent)/100;
+    }else if (this.annualSalary>=TAX_BRACKETS.BRACKET_4.minTaxable && this.annualSalary <= TAX_BRACKETS.BRACKET_4.maxTaxable ){
+      this.incomeTax = TAX_BRACKETS.BRACKET_4.minTax  + (((this.annualSalary - TAX_BRACKETS.BRACKET_3.maxTaxable)*TAX_BRACKETS.BRACKET_4.taxPercent)/100);
+    }else if (this.annualSalary>=TAX_BRACKETS.BRACKET_5.minTaxable ){
+      this.incomeTax = TAX_BRACKETS.BRACKET_5.minTax  + ((this.annualSalary - TAX_BRACKETS.BRACKET_4.maxTaxable)*TAX_BRACKETS.BRACKET_5.taxPercent)/100;
     }
     //console.log(this.incomeTax);
     this.payslip.incomeTax=this.incomeTax/12;
