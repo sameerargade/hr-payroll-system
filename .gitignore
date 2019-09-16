@@ -47,3 +47,7 @@ hr-payroll-system-web/src/.vscode/
 hr-payroll-system-web/node_modules/
 
 hr-payroll-system-web/src/main/web/node/
+
+hr-payroll-system-server/hrpayrollsystem.log.2019-09-16.0.gz
+
+hr-payroll-system-server/hrpayrollsystem.log

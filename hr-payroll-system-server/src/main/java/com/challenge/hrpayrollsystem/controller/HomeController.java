@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 
-//@RequestMapping({"/home","","/grocery-item-add","/grocery-item-list","/dashboard","grocery-item-update/{id}"})
+
 @RequestMapping(value = "/**/{path:[^.]*}") 
 public class HomeController {
 	 @GetMapping

@@ -1,22 +1,21 @@
 package com.challenge.hrpayrollsystem.dto;
 
-import java.util.Date;
-
 public class PayslipDto {
 	private EmployeeDto employee;
-	private Date payDate;
+	private String payDate;
 	private String payFrequency;
 	private Double grossIncome;
 	private Double incomeTax;
 	private Double netIncome;
 	private Double superPay;
 	private Double pay;
+	
 
-	public Date getPayDate() {
+	public String getPayDate() {
 		return payDate;
 	}
 
-	public void setPayDate(Date payDate) {
+	public void setPayDate(String payDate) {
 		this.payDate = payDate;
 	}
 

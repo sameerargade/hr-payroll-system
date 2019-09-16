@@ -6,6 +6,7 @@ import { catchError, map,filter, tap, switchMap } from "rxjs/operators";
 import { DataService } from '../shared/data-service';
 import { Payslip } from '../model/payslip.model';
 import { PayslipService } from './payslip.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'payslip',
@@ -22,7 +23,9 @@ incomeTax:number = 0.0;
 netIncome:number = 0.0;
 private state$: Observable<object>;
   constructor(private router: Router, 
-    private route: ActivatedRoute,private dataService:DataService,private payslipService: PayslipService)  {
+    private route: ActivatedRoute,private dataService:DataService,
+    private payslipService: PayslipService,
+    private location:Location)  {
       this.employeeInfo = JSON.parse(this.dataService.storage); //as EmployeeInfoModel;
       this.payslip.employee = this.employeeInfo;
       console.log(this.employeeInfo);
@@ -71,7 +74,9 @@ private state$: Observable<object>;
     console.log(this.payslip);
     this.payslipService.savePayslip(this.payslip).subscribe( data =>{
       console.log(' returned data' + JSON.stringify(data));   
-   });;
+   });
   }
-
+  navigateBack(){
+    this.location.back();
+  }
 }

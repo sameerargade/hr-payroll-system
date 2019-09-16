@@ -2,8 +2,8 @@ package com.challenge.hrpayrollsystem.controller;
 
 import java.util.Optional;
 
-import javax.validation.Valid;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,26 +13,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.challenge.hrpayrollsystem.domain.Payslip;
+import com.challenge.hrpayrollsystem.dto.IPayslipMapper;
+import com.challenge.hrpayrollsystem.dto.PayslipDto;
 import com.challenge.hrpayrollsystem.exceptions.DuplicatePayException;
 import com.challenge.hrpayrollsystem.service.PayslipService;
 @Controller
 public class PayslipController {
-
+	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	PayslipService payslipService;
+	@Autowired
+	IPayslipMapper payslipMapper;
 
-	@RequestMapping(value = "/savePayslip", method = RequestMethod.POST)
-	public ResponseEntity createPost(Payslip payslip) {
+	@RequestMapping(value = "/payslips", method = RequestMethod.POST)
+	public ResponseEntity savePayslip(@RequestBody PayslipDto payslipDto) throws DuplicatePayException {
 		Optional<Payslip> optionalPayslip = Optional.ofNullable(null);
-		try {
+		Payslip payslip = new Payslip();
+			payslip = payslipMapper.asPayslip(payslipDto, payslip);
 			optionalPayslip = payslipService.savePayslip(payslip);
-
 			return new ResponseEntity(optionalPayslip, HttpStatus.OK);
-		} catch (DuplicatePayException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return new ResponseEntity(optionalPayslip, HttpStatus.INTERNAL_SERVER_ERROR);
+
 	}
 
 }
