@@ -1,6 +1,8 @@
 {
-    "demo.title": "Translation demo",
-    "demo.text": "This is a simple demonstration app for ngx-translate",
+    "empinfo.firstname": "First Name",
+    "empinfo.lastname": "Last Name",
+    "empinfo.annualsalary": "Annual Salary",
+    "empinfo.superrate": "Super Rate",
     "payslip.payDate": "Pay Date",
     "payslip.frequencey": "Pay Frequency",
     "payslip.annualIncome": "Annual Income",

@@ -1,19 +1,54 @@
 <h1>Employee Info</h1>
+
 <div class="container">
   <form #employeeForm="ngForm"  >
     <div class="row">
-        <input  class="form-control" type="text" ngModel [(ngModel)]="employee.firstName" required name="firstName"   #name="ngModel">
+        <mat-form-field>
+            <input matInput placeholder="{{ 'empinfo.firstname' | translate }}" ngModel [(ngModel)]="employee.firstName" required name="firstName"   #name="ngModel">
+          </mat-form-field>
+        <!-- <input  class="form-control" type="text" ngModel [(ngModel)]="employee.firstName" required name="firstName"   #name="ngModel"> -->
         <div [hidden]="name.valid || name.pristine"
              class="alert alert-danger">
           Name is required
         </div>
+        <mat-form-field>
+          <input matInput placeholder="{{ 'empinfo.lastname' | translate }}" ngModel [(ngModel)]="employee.lastName" required name="lastName"   #name="ngModel">
+        </mat-form-field>
+      <!-- <input  class="form-control" type="text" ngModel [(ngModel)]="employee.firstName" required name="firstName"   #name="ngModel"> -->
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        Name is required
+      </div>
     
-        <input  class="form-control" type="text" ngModel [(ngModel)]="employee.lastName" required name ="lastName"/>
+        <!-- <input  class="form-control" type="text" ngModel [(ngModel)]="employee.lastName" required name ="lastName"/> -->
     </div>
     <div class="row">
+      <mat-form-field>
+          <span matPrefix>$&nbsp;</span>
+          <span matSuffix>.00</span>
+          <input matInput placeholder="{{ 'empinfo.annualsalary' | translate }}" ngModel [(ngModel)]="employee.annualSalary" required name="annualSalary"   #annualSalary="ngModel">
+        </mat-form-field>
+      <!-- <input  class="form-control" type="text" ngModel [(ngModel)]="employee.firstName" required name="firstName"   #name="ngModel"> -->
+      <div [hidden]="annualSalary.valid || annualSalary.pristine"
+           class="alert alert-danger">
+        Name is required
+      </div>
+      <mat-form-field>
+          <span matPrefix>%&nbsp;</span>
+        <input matInput placeholder="{{ 'empinfo.superrate' | translate }}" ngModel [(ngModel)]="employee.superRate" required name="superRate"   #name="ngModel">
+      </mat-form-field>
+    <!-- <input  class="form-control" type="text" ngModel [(ngModel)]="employee.firstName" required name="firstName"   #name="ngModel"> -->
+    <div [hidden]="name.valid || name.pristine"
+         class="alert alert-danger">
+      Name is required
+    </div>
+  
+      <!-- <input  class="form-control" type="text" ngModel [(ngModel)]="employee.lastName" required name ="lastName"/> -->
+  </div>
+    <!-- <div class="row">
         <input  class="form-control" type="text" ngModel [(ngModel)]="employee.annualSalary" required name="annualSalary"/>
         <input  class="form-control" type="text" ngModel [(ngModel)]="employee.superRate" required name = "superRate"/>
-    </div>
+    </div> -->
     
     <button type="button" class="btn btn-primary mr-2" [disabled]="!employeeForm.form.valid" (click)="generatePaySlip()" value="Submit" >
         Generate Payslip

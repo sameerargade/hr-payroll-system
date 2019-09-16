@@ -1,38 +1,45 @@
-<h1>Payslip</h1>
-{{this.payslip.employee?.firstName}} {{this.payslip.employee?.lastName}}
+
 <!-- {{this.firstName}} -->
 <div class="container">
-        <form #payslipForm="ngForm">
-                <div class="row">
-                        {{'payslip.payDate' | translate}} {{this.payslip.payDate | date :'dd MMM yyyy'}}
-                </div>
-                <div class="row">
-                     {{'payslip.frequencey' | translate}}   {{this.payslip.payFrequency}}
-                </div>
-                <div class="row">
-                     {{'payslip.annualIncome' | translate}}    {{this.payslip.employee?.annualSalary}}
-                </div>
-                <div class="row">
-                       {{'payslip.grossIncome' | translate}}{{this.payslip.grossIncome | number:'1.0-0'}}
-                </div>
-                <div class="row">
-                       {{'payslip.incomeTax' | translate}} {{this.payslip.incomeTax}}
-                </div>
-                <div class="row">
-                    {{'payslip.netIncome' | translate}}     {{this.payslip.netIncome}}
-                </div>
-                <div class="row">
-                     {{'payslip.super' | translate}}    {{this.payslip.superPay}}
-                </div>
-                <div class="row">
-                    {{'payslip.pay' | translate}}     {{this.payslip.pay}}
-                </div>
-        </form>
-        <button type="button" class="btn btn-primary mr-2" (click)="pay()" value="Submit">
-                Pay
-        </button>
-        <button type="button" class="btn btn-secondary ml-5 rounded" (click)="navigateBack()" value="Submit">
-                Back
-        </button>
-</div>
+                <h1>Payslip</h1>
+                {{this.payslip.employee?.firstName}} {{this.payslip.employee?.lastName}}
+<form #payslipForm="ngForm">
+        <table class="table table-striped">
+                <tbody>
+                        <tr>
 
+                              <td>  {{'payslip.payDate' | translate}}</td>  <td> {{this.payslip.payDate | date :'dd MMM yyyy'}}</td>
+                        </tr>
+                        <tr>
+                                        <td>  {{'payslip.frequencey' | translate}} </td> <td> {{this.payslip.payFrequency}}</td>
+                        </tr>
+                        <tr>
+                                        <td>  {{'payslip.annualIncome' | translate}} </td> <td>  {{this.payslip.employee?.annualSalary}}</td>
+                        </tr>
+                        <tr>
+                                        <td>  {{'payslip.grossIncome' | translate}}</td>  <td>  {{this.payslip.grossIncome | number:'1.0-0'}}</td>
+                        </tr>
+                        <tr>
+                                        <td>  {{'payslip.incomeTax' | translate}}  </td><td> {{this.payslip.incomeTax}}</td>
+                        </tr>
+                        <tr>
+                                        <td>  {{'payslip.netIncome' | translate}}</td> <td>  {{this.payslip.netIncome}}</td>
+                        </tr>
+                        <tr>
+                                        <td>  {{'payslip.super' | translate}}</td>  <td>  {{this.payslip.superPay}}</td>
+                        </tr>
+                        <tr>
+                                        <td>  {{'payslip.pay' | translate}}  <td> {{this.payslip.pay}}
+                        </tr>
+                </tbody>
+        </table>
+        
+
+<button type="button" class="btn btn-primary mr-2" (click)="pay()" value="Submit">
+        Pay
+</button>
+<button type="button" class="btn btn-secondary ml-5 rounded" (click)="navigateBack()" value="Submit">
+        Back
+</button>
+</form>
+</div>
