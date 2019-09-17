@@ -1,10 +1,15 @@
 package com.challenge.hrpayrollsystem.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +23,8 @@ public class Employee {
 	String firstName;
 	@Column(name = "last_name", nullable = false)
 	String lastName;
-
+	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+	private Set<Payslip> payslips = new HashSet<Payslip>();
 
 	public Long getId() {
 		return id;
@@ -42,6 +48,14 @@ public class Employee {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public Set<Payslip> getPayslips() {
+		return payslips;
+	}
+
+	public void setPayslips(Set<Payslip> payslips) {
+		this.payslips = payslips;
 	}
 
 }

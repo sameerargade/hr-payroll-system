@@ -26,8 +26,7 @@ public class Payslip extends AuditModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	Long id;
-//	@Column(name = "employeeID", nullable = false)
-//	int employeeID;
+
 	@Column(name = "pay_date", nullable = false)
 	String payDate;
 	@Column(name = "pay_frequency", nullable = false)
@@ -42,12 +41,9 @@ public class Payslip extends AuditModel {
 	Double superPay;
 	@Column(name = "pay", nullable = false)
 	Double pay;
-//	@Column(name = "date_created", nullable = false)
-//	String dateCreated;
-//	@Column(name = "created_by", nullable = false)
-//	String createdBy;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "employeeID", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JsonIgnore
@@ -61,14 +57,6 @@ public class Payslip extends AuditModel {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-//	public int getEmployeeID() {
-//		return employeeID;
-//	}
-//
-//	public void setEmployeeID(int employeeID) {
-//		this.employeeID = employeeID;
-//	}
 
 	public String getPayDate() {
 		return payDate;
@@ -134,20 +122,5 @@ public class Payslip extends AuditModel {
 		this.employee = employee;
 	}
 
-//	public String getDateCreated() {
-//		return dateCreated;
-//	}
-//
-//	public void setDateCreated(String dateCreated) {
-//		this.dateCreated = dateCreated;
-//	}
-
-//	public String getCreatedBy() {
-//		return createdBy;
-//	}
-//
-//	public void setCreatedBy(String createdBy) {
-//		this.createdBy = createdBy;
-//	}
 
 }
