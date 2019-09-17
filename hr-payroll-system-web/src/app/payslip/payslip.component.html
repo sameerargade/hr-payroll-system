@@ -1,0 +1,46 @@
+
+<!-- {{this.firstName}} -->
+<ngx-alerts></ngx-alerts>
+<div class="container">
+                <h1>Payslip</h1>
+                <h2>{{this.payslip.employee?.firstName}} {{this.payslip.employee?.lastName}}</h2>
+<form #payslipForm="ngForm">
+        <table class="table table-striped">
+                <tbody>
+                        <tr>
+
+                              <td> <b> {{'payslip.payDate' | translate}}</b></td>  <td> {{this.payslip.payDate | date :'dd MMM yyyy'}}</td>
+                        </tr>
+                        <tr>
+                                        <td> <b> {{'payslip.frequencey' | translate}}</b> </td> <td> {{this.payslip.payFrequency}}</td>
+                        </tr>
+                        <tr>
+                                        <td> <b> {{'payslip.annualIncome' | translate}}</b> </td> <td>  {{this.payslip.employee?.annualSalary | number:'1.0-0'}}</td>
+                        </tr>
+                        <tr>
+                                        <td> <b> {{'payslip.grossIncome' | translate}}</b></td>  <td>  {{this.payslip.grossIncome | number:'1.0-0'}}</td>
+                        </tr>
+                        <tr>
+                                        <td> <b> {{'payslip.incomeTax' | translate}} </b> </td><td> {{this.payslip.incomeTax | number:'1.0-0'}}</td>
+                        </tr>
+                        <tr>
+                                        <td> <b> {{'payslip.netIncome' | translate}}</b></td> <td>  {{this.payslip.netIncome | number:'1.0-0' }}</td>
+                        </tr>
+                        <tr>
+                                        <td> <b> {{'payslip.super' | translate}}</b></td>  <td>  {{this.payslip.superPay | number:'1.0-0'}}</td>
+                        </tr>
+                        <tr>
+                                        <td> <b> {{'payslip.pay' | translate}}</b>  <td> {{this.payslip.pay | number:'1.0-0' }}
+                        </tr>
+                </tbody>
+        </table>
+        
+
+<button type="button" class="btn btn-primary mr-2" (click)="pay()" value="Submit">
+        Pay
+</button>
+<button type="button" class="btn btn-secondary ml-5 rounded" (click)="navigateBack()" value="Submit">
+        Back
+</button>
+</form>
+</div>

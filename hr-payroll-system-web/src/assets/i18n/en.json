@@ -1,0 +1,18 @@
+{
+    "empinfo.firstname": "First Name",
+    "empinfo.lastname": "Last Name",
+    "empinfo.annualsalary": "Annual Salary",
+    "empinfo.superrate": "Super Rate",
+    "payslip.payDate": "Pay Date",
+    "payslip.frequencey": "Pay Frequency",
+    "payslip.annualIncome": "Annual Income",
+    "payslip.grossIncome": "Gross Income",
+    "payslip.incomeTax": "Income tax",
+    "payslip.netIncome": "Net Income",
+    "payslip.super": "Super",
+    "payslip.pay": "Pay" ,
+    "error.empty.firstname": "First name is required",
+    "error.empty.lastname": "Last name is required",
+    "error.empty.annualsalary": "Annual Salary is required",
+    "error.empty.superrate": "Super Rate is required"
+  }
