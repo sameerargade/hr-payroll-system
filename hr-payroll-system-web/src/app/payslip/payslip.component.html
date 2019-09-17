@@ -1,35 +1,36 @@
 
 <!-- {{this.firstName}} -->
+<ngx-alerts></ngx-alerts>
 <div class="container">
                 <h1>Payslip</h1>
-                {{this.payslip.employee?.firstName}} {{this.payslip.employee?.lastName}}
+                <h2>{{this.payslip.employee?.firstName}} {{this.payslip.employee?.lastName}}</h2>
 <form #payslipForm="ngForm">
         <table class="table table-striped">
                 <tbody>
                         <tr>
 
-                              <td>  {{'payslip.payDate' | translate}}</td>  <td> {{this.payslip.payDate | date :'dd MMM yyyy'}}</td>
+                              <td> <b> {{'payslip.payDate' | translate}}</b></td>  <td> {{this.payslip.payDate | date :'dd MMM yyyy'}}</td>
                         </tr>
                         <tr>
-                                        <td>  {{'payslip.frequencey' | translate}} </td> <td> {{this.payslip.payFrequency}}</td>
+                                        <td> <b> {{'payslip.frequencey' | translate}}</b> </td> <td> {{this.payslip.payFrequency}}</td>
                         </tr>
                         <tr>
-                                        <td>  {{'payslip.annualIncome' | translate}} </td> <td>  {{this.payslip.employee?.annualSalary}}</td>
+                                        <td> <b> {{'payslip.annualIncome' | translate}}</b> </td> <td>  {{this.payslip.employee?.annualSalary}}</td>
                         </tr>
                         <tr>
-                                        <td>  {{'payslip.grossIncome' | translate}}</td>  <td>  {{this.payslip.grossIncome | number:'1.0-0'}}</td>
+                                        <td> <b> {{'payslip.grossIncome' | translate}}</b></td>  <td>  {{this.payslip.grossIncome | number:'1.0-0'}}</td>
                         </tr>
                         <tr>
-                                        <td>  {{'payslip.incomeTax' | translate}}  </td><td> {{this.payslip.incomeTax}}</td>
+                                        <td> <b> {{'payslip.incomeTax' | translate}} </b> </td><td> {{this.payslip.incomeTax}}</td>
                         </tr>
                         <tr>
-                                        <td>  {{'payslip.netIncome' | translate}}</td> <td>  {{this.payslip.netIncome}}</td>
+                                        <td> <b> {{'payslip.netIncome' | translate}}</b></td> <td>  {{this.payslip.netIncome}}</td>
                         </tr>
                         <tr>
-                                        <td>  {{'payslip.super' | translate}}</td>  <td>  {{this.payslip.superPay}}</td>
+                                        <td> <b> {{'payslip.super' | translate}}</b></td>  <td>  {{this.payslip.superPay}}</td>
                         </tr>
                         <tr>
-                                        <td>  {{'payslip.pay' | translate}}  <td> {{this.payslip.pay}}
+                                        <td> <b> {{'payslip.pay' | translate}}</b>  <td> {{this.payslip.pay}}
                         </tr>
                 </tbody>
         </table>

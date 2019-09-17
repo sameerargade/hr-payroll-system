@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppComponent } from './app.component';
 // import { EmployeeInfoComponent } from './employee-info/employee-info.component';
@@ -7,10 +7,13 @@ import { AppComponent } from './app.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
-import {HttpClient, HttpClientModule} from '@angular/common/http'; 
+import {HttpClient, HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http'; 
 import { AppRoutingModule } from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule,MatSnackBarModule } from '@angular/material';
+import { AlertModule } from 'ngx-alerts';
+import { ServerErrorInterceptor } from './shared/error.interceptor';
+import { GlobalErrorHandler } from './shared/global.error.handler';
 @NgModule({
   declarations: [
     AppComponent
@@ -23,6 +26,9 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'}),
+
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -32,7 +38,8 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
   })
     
   ],
-  providers: [],
+  providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler },
+    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

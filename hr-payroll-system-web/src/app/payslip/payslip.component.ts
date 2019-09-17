@@ -8,6 +8,7 @@ import { Payslip } from '../model/payslip.model';
 import { PayslipService } from './payslip.service';
 import {Location} from '@angular/common';
 import {TAX_BRACKETS } from '../shared/constants'
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'payslip',
@@ -27,7 +28,7 @@ netIncome:number = 0.0;
 private state$: Observable<object>;
   constructor(private router: Router, 
     private route: ActivatedRoute,private dataService:DataService,
-    private payslipService: PayslipService,
+    private payslipService: PayslipService,private alertService: AlertService,
     private location:Location)  {
       this.employeeInfo = JSON.parse(this.dataService.storage); //as EmployeeInfoModel;
       this.payslip.employee = this.employeeInfo;
@@ -80,9 +81,19 @@ private state$: Observable<object>;
     console.log(this.payslip);
     this.payslipService.savePayslip(this.payslip).subscribe( data =>{
       console.log(' returned data' + JSON.stringify(data));   
-   });
+      this.alertService.success('Pay generated successfully');
+   },error => {
+    //this.alertService.danger('Please do not pay twice to the same employee every month');
+    this.throwError();
+  });
   }
   navigateBack(){
     this.location.back();
   }
+  throwError(){
+    this.alertService.danger('Please do not pay twice to the same employee every month');
+    throw new Error('Please do not pay twice to the same employee every month');
+  }
+
+  
 }

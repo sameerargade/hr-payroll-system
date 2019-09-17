@@ -10,5 +10,9 @@
     "payslip.incomeTax": "Income tax",
     "payslip.netIncome": "Net Income",
     "payslip.super": "Super",
-    "payslip.pay": "Pay" 
+    "payslip.pay": "Pay" ,
+    "error.empty.firstname": "First name is required",
+    "error.empty.lastname": "Last name is required",
+    "error.empty.annualsalary": "Annual Salary is required",
+    "error.empty.superrate": "Super Rate is required"
   }
