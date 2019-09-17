@@ -51,3 +51,11 @@ hr-payroll-system-web/src/main/web/node/
 hr-payroll-system-server/hrpayrollsystem.log.2019-09-16.0.gz
 
 hr-payroll-system-server/hrpayrollsystem.log
+
+*.log
+
+target/sonar/
+
+hr-payroll-system-server/hrpayrollsystem.log.2019-09-16.03879015602305.tmp
+
+hr-payroll-system-web/src/assets/.gitkeep
