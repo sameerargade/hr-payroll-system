@@ -22,10 +22,15 @@ public class PayslipController {
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	@Autowired
+	//@Autowired
 	PayslipService payslipService;
-	@Autowired
+	//@Autowired
 	IPayslipMapper payslipMapper;
+	
+	public PayslipController(PayslipService payslipService,IPayslipMapper payslipMapper) {
+		this.payslipService = payslipService;
+		this.payslipMapper = payslipMapper;
+	}
 
 	@RequestMapping(value = "/payslips", method = RequestMethod.POST)
 	public ResponseEntity savePayslip(@RequestBody PayslipDto payslipDto) throws DuplicatePayException {

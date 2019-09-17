@@ -21,7 +21,7 @@ public class PayslipServiceImpl implements PayslipService {
 	
 	PayslipRepository payslipRepository;
 	
-	PayslipServiceImpl(EmployeeRepository employeeRepository,PayslipRepository payslipRepository){
+	public PayslipServiceImpl(EmployeeRepository employeeRepository,PayslipRepository payslipRepository){
 		this.employeeRepository = employeeRepository;
 		this.payslipRepository = payslipRepository;
 	}

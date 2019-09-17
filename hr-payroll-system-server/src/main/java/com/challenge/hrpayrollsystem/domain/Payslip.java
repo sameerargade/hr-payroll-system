@@ -33,7 +33,7 @@ public class Payslip extends AuditModel {
 	@Column(name = "pay_frequency", nullable = false)
 	String payFrequency;
 	@Column(name = "gross_income", nullable = false)
-	String grossIncome;
+	Double grossIncome;
 	@Column(name = "income_tax", nullable = false)
 	Double incomeTax;
 	@Column(name = "net_income", nullable = false)
@@ -86,11 +86,11 @@ public class Payslip extends AuditModel {
 		this.payFrequency = payFrequency;
 	}
 
-	public String getGrossIncome() {
+	public Double getGrossIncome() {
 		return grossIncome;
 	}
 
-	public void setGrossIncome(String grossIncome) {
+	public void setGrossIncome(Double grossIncome) {
 		this.grossIncome = grossIncome;
 	}
 
