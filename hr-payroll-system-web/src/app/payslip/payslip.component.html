@@ -15,22 +15,22 @@
                                         <td> <b> {{'payslip.frequencey' | translate}}</b> </td> <td> {{this.payslip.payFrequency}}</td>
                         </tr>
                         <tr>
-                                        <td> <b> {{'payslip.annualIncome' | translate}}</b> </td> <td>  {{this.payslip.employee?.annualSalary}}</td>
+                                        <td> <b> {{'payslip.annualIncome' | translate}}</b> </td> <td>  {{this.payslip.employee?.annualSalary | number:'1.0-0'}}</td>
                         </tr>
                         <tr>
                                         <td> <b> {{'payslip.grossIncome' | translate}}</b></td>  <td>  {{this.payslip.grossIncome | number:'1.0-0'}}</td>
                         </tr>
                         <tr>
-                                        <td> <b> {{'payslip.incomeTax' | translate}} </b> </td><td> {{this.payslip.incomeTax}}</td>
+                                        <td> <b> {{'payslip.incomeTax' | translate}} </b> </td><td> {{this.payslip.incomeTax | number:'1.0-0'}}</td>
                         </tr>
                         <tr>
-                                        <td> <b> {{'payslip.netIncome' | translate}}</b></td> <td>  {{this.payslip.netIncome}}</td>
+                                        <td> <b> {{'payslip.netIncome' | translate}}</b></td> <td>  {{this.payslip.netIncome | number:'1.0-0' }}</td>
                         </tr>
                         <tr>
-                                        <td> <b> {{'payslip.super' | translate}}</b></td>  <td>  {{this.payslip.superPay}}</td>
+                                        <td> <b> {{'payslip.super' | translate}}</b></td>  <td>  {{this.payslip.superPay | number:'1.0-0'}}</td>
                         </tr>
                         <tr>
-                                        <td> <b> {{'payslip.pay' | translate}}</b>  <td> {{this.payslip.pay}}
+                                        <td> <b> {{'payslip.pay' | translate}}</b>  <td> {{this.payslip.pay | number:'1.0-0' }}
                         </tr>
                 </tbody>
         </table>

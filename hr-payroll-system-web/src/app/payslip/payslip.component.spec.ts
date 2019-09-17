@@ -64,3 +64,14 @@ describe('DataService', () => {
     expect(dataService).toBeTruthy();
   });
 });
+
+describe('GeneratePayslip',() =>{
+  let dataService: DataService; 
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [DataService]
+    });
+
+    dataService = TestBed.get(DataService); 
+  })
+})

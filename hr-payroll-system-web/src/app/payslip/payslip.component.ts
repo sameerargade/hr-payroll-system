@@ -49,12 +49,13 @@ private state$: Observable<object>;
    this.calculate();
   }
   
-  calculate(){
+  calculate():Payslip{
     let date = new Date(), y = date.getFullYear(), m = date.getMonth();
     this.payslip.payFrequency = 'Monthly';
     this.payslip.payDate = new Date(y, m + 1, 0);
     this.payslip.grossIncome = this.payslip.employee.annualSalary/12;
     this.calculateTax();
+    return this.payslip;
   }
   
 

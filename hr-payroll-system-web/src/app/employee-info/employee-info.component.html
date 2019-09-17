@@ -39,7 +39,7 @@
       <mat-form-field>
         <span matPrefix>%&nbsp;</span>
         <input matInput placeholder="{{ 'empinfo.superrate' | translate }}" ngModel [(ngModel)]="employee.superRate"
-        min="0" required pattern="[0-9]*" name="superRate" #superRate="ngModel" digitOnly>
+        min="0" required pattern="^\d{0,9}(\.\d{1,9})?$" name="superRate" #superRate="ngModel" digitOnly>
       </mat-form-field>
            <div [hidden]="superRate.valid || superRate.pristine" class="alert alert-danger">
               {{ 'error.empty.superrate' | translate }}
