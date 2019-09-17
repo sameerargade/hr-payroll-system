@@ -56,5 +56,12 @@ a pom.xml for the parent project and this readme.md file.
 	1. to run the frontend tests run ng test from the /hr-payroll-system-web/src/app directory.
 	2. The server side tests run at the time of packaging itself.
 	
-
+## Drop database when done
+	
+	Use follwoing sql files to clean up database.
+	1.delete-payslip-data.sql
+	2.delete-employee-data.sql
+	3.drop-table-payslip.sql
+	4.drop-table-employee.sql
+	5.drop-schema.sql
 	
