@@ -31,7 +31,8 @@ export class EmployeeInfoComponent implements OnInit {
     };
     //this.router.navigate(['payslip',{state:{ data : JSON.stringify(this.employee)}}]);
     //this.router.navigate(['payslip' ,navigationExtras]);
-    this.dataService.storage = JSON.stringify(this.employee);
+    //this.dataService.storage = JSON.stringify(this.employee);
+    this.dataService.storage = this.employee;
     //console.log( this.dataService.storage);
     // let route = this.router.config.find(r => r.path === 'payslip');
     // route.data = { entity: JSON.stringify(this.employee) };

@@ -30,7 +30,10 @@ private state$: Observable<object>;
     private route: ActivatedRoute,private dataService:DataService,
     private payslipService: PayslipService,private alertService: AlertService,
     private location:Location)  {
-      this.employeeInfo = JSON.parse(this.dataService.storage); //as EmployeeInfoModel;
+      console.log(this.dataService.storage);
+     // this.dataService.storage = [{'firstName':'john','lastName':'smith','annualSalary':'120000','superRate':'9.5'}];
+
+      this.employeeInfo = this.dataService.storage; //as EmployeeInfoModel;
       this.payslip.employee = this.employeeInfo;
       console.log(this.employeeInfo);
       this.annualSalary = this.payslip.employee.annualSalary;
@@ -40,7 +43,7 @@ private state$: Observable<object>;
     
    
     //console.log(this.dataService.storage);
-    this.employeeInfo = this.dataService.storage as EmployeeInfoModel;
+    //this.employeeInfo = this.dataService.storage as EmployeeInfoModel;
     //console.log(this.employeeInfo);
    // console.log(window.history.state.data);
    this.calculate();
